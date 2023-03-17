@@ -2,9 +2,9 @@
 using namespace std;
 
 // space between two letters
-const string letter_space = " ";
+const int letter_space = 1;
 // space between two words
-const string word_space = "   ";
+const int word_space = 3;
 // unsupported characters
 const string unsupported = "?";
 // morse code encodings of lower case characters 
@@ -15,11 +15,13 @@ string encode(string text) {
     string code;
     for(char c : text) {
         if (c == ' ') {
-            code += word_space;
+            string spaces(word_space - letter_space, ' ');
+            code += spaces;
         } else if (islower(c)){
             // ascii to zero based index 
             code += encodings[int(c) - int('a')];
-            code += letter_space;
+            string spaces(letter_space, ' ');
+            code += spaces;
         } else {
             code += unsupported;
         }
@@ -30,7 +32,7 @@ string encode(string text) {
 char decode_letter(string letter_code) {
     int i = 0;
     // O(n)
-    for (i; i < sizeof(encodings)/sizeof(encodings[0]); i++) {
+    for (; i < sizeof(encodings)/sizeof(encodings[0]); i++) {
         if (encodings[i] == letter_code) {
             break;
         }
@@ -38,7 +40,7 @@ char decode_letter(string letter_code) {
     return char(i + 'a');
 }
 
-string decode(string code) {
+string decode(const string code) {
     string text;
     string letter;
     bool prev_space = false;
@@ -49,8 +51,7 @@ string decode(string code) {
             if (prev_space) {
                 text += " ";
                 prev_space = false;
-                code_ptr++;
-                code_ptr++;
+                code_ptr += word_space - letter_space - letter_space;
             } else {
                 text += decode_letter(letter);
                 letter = "";
@@ -62,12 +63,15 @@ string decode(string code) {
         }
         code_ptr++;
     }
-    text += decode_letter(letter);
+    if (!letter.empty()){
+        text += decode_letter(letter);
+    }
     return text;
 }
 
 int main(int argc, char** argv) {
     cout << encode("hello world") << endl;
-    cout << decode(".... --- .--    .- .-. .    -.-- --- ..-") << endl;
+    cout << decode(".... --- .--   .- .-. .   -.-- --- ..-") << endl;
+    cout << decode(encode("bye bye")) << endl;
     return 0;
 }
