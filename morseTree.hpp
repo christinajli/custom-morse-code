@@ -6,20 +6,23 @@ using namespace std;
 
 class treeNode {
 public:
-    treeNode(char data, treeNode* left = nullptr, treeNode* right = nullptr) :
+    treeNode(char data) :
         character(data),
-        leftNode(left),
-        rightNode(right){};
+        code(""),
+        leftNode(nullptr),
+        rightNode(nullptr){};
+    
+    void addCode(string data) { code = data; };
 
     char character;
+    string code;
     treeNode* leftNode;
     treeNode* rightNode;
 };
 
 class morseTree {
 public:
-    morseTree() : root(nullptr) {};
-    morseTree(treeNode* node) : root(node) {};
+    morseTree();
 
     /**
      * Creates a binary tree
@@ -29,6 +32,7 @@ public:
     void buildTree(string order);
 
     void printTree();
+    treeNode* getRoot();
     // string getCode(char data); 
     // char decode(string code);
 
