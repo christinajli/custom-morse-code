@@ -21,7 +21,14 @@ public:
     morseTree() : root(nullptr) {};
     morseTree(treeNode* node) : root(node) {};
 
+    /**
+     * Creates a binary tree
+     *
+     * @param order level order traversal string
+     */
     void buildTree(string order);
+
+    void printTree();
     // string getCode(char data); 
     // char decode(string code);
 
