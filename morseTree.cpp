@@ -51,3 +51,20 @@ void morseTree::printTree() {
         nodeQueue.pop();
     }
 }
+
+char morseTree::decode(string code) {
+    treeNode* current = root;
+
+    for (char c : code) {
+        if (c == '.' && current->leftNode != nullptr) {
+            current = current->leftNode;
+        } else if (c == '-' && current->rightNode != nullptr) {
+            current = current->rightNode;
+        } else {
+            cout<<"Invalid input code or character does not exist" << endl;
+            return '\0';
+        }
+    }
+
+    return current->character;
+}

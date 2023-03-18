@@ -27,14 +27,31 @@ public:
     /**
      * Creates a binary tree
      *
-     * @param order level order traversal string
+     * @param order: level order traversal string
      */
     void buildTree(string order);
 
+    // string getCode(char data);
+
+    /**
+     * Finds and returns the character of a given code
+     *
+     * @param code: morse code string
+     * @returns character: the character associated with the given code
+     */
+    char decode(string code);
+
+    /**
+     * Helper method to view tree in level order, and print out character and the code
+     *
+     */
     void printTree();
+    /**
+     * Helper method to get tree root
+     *
+     * @returns root
+     */
     treeNode* getRoot();
-    // string getCode(char data); 
-    // char decode(string code);
 
 private: 
     treeNode* root;
