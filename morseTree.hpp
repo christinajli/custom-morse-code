@@ -31,10 +31,16 @@ public:
      */
     void buildTree(string order);
 
-    // string getCode(char data);
+    /**
+     * Finds and returns the morse code of a given character by breadth first search 
+     *
+     * @param data: character
+     * @returns code: the string of morse code associated with the given character
+     */
+    string getCode(char data);
 
     /**
-     * Finds and returns the character of a given code
+     * Finds and returns the character of a given code by traversing the tree
      *
      * @param code: morse code string
      * @returns character: the character associated with the given code
@@ -46,6 +52,7 @@ public:
      *
      */
     void printTree();
+
     /**
      * Helper method to get tree root
      *

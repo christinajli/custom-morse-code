@@ -68,3 +68,28 @@ char morseTree::decode(string code) {
 
     return current->character;
 }
+
+string morseTree::getCode(char data) {
+    if (root == nullptr) {
+        cout << "Empty Tree!" << endl;
+        return "?";
+    }
+
+    queue<treeNode*> nodeQueue;
+    nodeQueue.push(root);
+
+    while (!nodeQueue.empty()) {
+        if (nodeQueue.front()->character == data) {
+            return nodeQueue.front()->code;
+        } else {
+            if (nodeQueue.front()->leftNode != nullptr) {
+            nodeQueue.push(nodeQueue.front()->leftNode);
+            }
+            if (nodeQueue.front()->rightNode != nullptr) {
+                nodeQueue.push(nodeQueue.front()->rightNode);
+            }
+        }
+        nodeQueue.pop();
+    }
+    return "?";
+}
