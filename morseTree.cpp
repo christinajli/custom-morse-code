@@ -61,7 +61,7 @@ char morseTree::decode(string code) {
         } else if (c == '-' && current->rightNode != nullptr) {
             current = current->rightNode;
         } else {
-            cout<<"Invalid input code or character does not exist" << endl;
+            // Invalid input code or character does not exist"
             return '\0';
         }
     }
@@ -71,7 +71,7 @@ char morseTree::decode(string code) {
 
 string morseTree::getCode(char data) {
     if (root == nullptr) {
-        cout << "Empty Tree!" << endl;
+        // Empty Tree!
         return "?";
     }
 

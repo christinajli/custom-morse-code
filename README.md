@@ -15,9 +15,8 @@ Compare efficiency, taking into consideration both bit size and spacing/length o
 
 ## Opens
 - [x] ITU Morse Code encode and decode
-- [ ] tree data structure to assign . and - to characters
-  - [ ] input custom ordering
-- [ ] convert encoding to another data structure for faster lookup
+- [x] tree data structure to assign . and - to characters
+  - [x] input custom ordering
 - [ ] use encode and decode with new encodings
   - [x] variable letter and word spacing, not hard coded in decode()
   - [ ] faster search for decoding --> O(logn) if given binary tree
