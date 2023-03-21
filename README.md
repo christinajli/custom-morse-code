@@ -4,23 +4,25 @@ Morse code, is designed such that the most frequently used letters have the shor
 
 This program is designed to take in any ordering of character frequency (and any characters, numbers, punctuations), and allow you to encode and decode text to your own binary code. For example, the International Morse Code ordering is roughly "etianmsurwdkgohvf-l,pjbxcyzq.&nbsp;&nbsp;54 3&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;8 90". Use space to denote skipped node of the binary tree.
 
-<p float="center">
+<p align="center">
     <img src="readme-imgs/international-morse.png" />
 </p>
 
 ## Algorithm
-Creating the encodings is similar to building up a binary tree given the breath-first search traversal, or the level order traversal, of the nodes/characters. Moving to the left sub tree is a ".", and moving to the right sub tree is a "-". 
+Creating the encodings is similar to building up a binary tree given the breath-first search traversal, or the level order traversal, of the nodes/characters. Moving to the left sub tree is denoted with a dot ".", and moving to the right sub tree is a dash "-". 
 
-For example, given the custom ordering of letters "abcdwxyz", "a" is encoded as ".", "b" is encoded as "-", "d" is encoded as ".-", "z" is encoded as "..-" etc. For this encoding, "bad" is "- . .-", but if decoded with International Morse Code, it will read "tea". 
-
-<p float="center">
+<p align="center">
     <img src="readme-imgs/custom-morse.png" />
 </p>
 
+For example, given the custom ordering of letters "abcdwxyz", "a" is encoded as ".", "b" is encoded as "-", "d" is encoded as ".-", "z" is encoded as "..-" etc. For this encoding, "bad" is "- . .-", but if decoded with International Morse Code, it will read "tea".
+
+The algorithm will only encode and decode the letters provided, any unknow characters will be translated to "?". 
+
 ### Usage
-1. git clone the repository, and cd to directory
-2. make output
-3. ./output
+1. ```git clone``` the repository, and ```cd``` to directory
+2. ```make output```
+3. ```./output```
 4. follow prompt from command line, and input custom ordering of letters
 5. use "encode" or "decode" keywords followed by text or code to translate
 
