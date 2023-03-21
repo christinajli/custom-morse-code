@@ -5,7 +5,7 @@ Morse code, is designed such that the most frequently used letters have the shor
 This program is designed to take in any ordering of character frequency (and any characters, numbers, punctuations), and allow you to encode and decode text to your own binary code. For example, the International Morse Code ordering is roughly "etianmsurwdkgohvf-l,pjbxcyzq.&nbsp;&nbsp;54 3&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;8 90". Use space to denote skipped node of the binary tree.
 
 <p float="center">
-    <img src="https://github.com/christinajli/custom-morse-code/blob/master/readme-imgs/international-morse.png" />
+    <img src="readme-imgs/international-morse.png" />
 </p>
 
 ## Algorithm
@@ -14,7 +14,7 @@ Creating the encodings is similar to building up a binary tree given the breath-
 For example, given the custom ordering of letters "abcdwxyz", "a" is encoded as ".", "b" is encoded as "-", "d" is encoded as ".-", "z" is encoded as "..-" etc. For this encoding, "bad" is "- . .-", but if decoded with International Morse Code, it will read "tea". 
 
 <p float="center">
-    <img src="https://github.com/christinajli/custom-morse-code/blob/master/readme-imgs/custom-morse.png" />
+    <img src="readme-imgs/custom-morse.png" />
 </p>
 
 ### Usage
