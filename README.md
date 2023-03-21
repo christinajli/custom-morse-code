@@ -30,10 +30,11 @@ The algorithm will only encode and decode the letters provided, any unknow chara
 5. use "encode" or "decode" keywords followed by text or code to translate
 
 ## Case Study
-Analyze ICAO codes for airports, and determine most frequently used characters.
-https://github.com/ip2location/ip2location-iata-icao/blob/master/iata-icao.csv 
-New proposed ordering
-Compare efficiency, taking into consideration both bit size and spacing/length of signals 
+TODO: 
+- [ ] Analyze ICAO codes for airports, and determine most frequently used characters.
+- [ ] [data](https://github.com/ip2location/ip2location-iata-icao/blob/master/iata-icao.csv)
+- [ ] Create new ordering
+- [ ] Compare efficiency, taking into consideration both bit size and spacing/length of signals 
 
 ## Opens
 - [x] ITU Morse Code encode and decode
