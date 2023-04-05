@@ -45,7 +45,7 @@ public:
      * @param code: morse code string
      * @returns character: the character associated with the given code
      */
-    char decode(string code);
+    char getChar(string code);
 
     /**
      * Helper method to view tree in level order, and print out character and the code

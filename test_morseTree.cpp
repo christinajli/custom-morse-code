@@ -28,21 +28,21 @@ void test_buildTree() {
 
 void test_decode() {
     string order = "mnopqrstuv";
-    cout << "Testing  decode() with order: " << order << endl;
+    cout << "Testing  getChar() with order: " << order << endl;
 
     morseTree tree;
     tree.buildTree(order);
 
-    assert(tree.decode(".") == 'm');
-    assert(tree.decode("-") == 'n');
+    assert(tree.getChar(".") == 'm');
+    assert(tree.getChar("-") == 'n');
 
-    assert(tree.decode("..") == 'o');
-    assert(tree.decode("--") == 'r');
+    assert(tree.getChar("..") == 'o');
+    assert(tree.getChar("--") == 'r');
 
-    assert(tree.decode("--.") == '\0');
-    assert(tree.decode("---") == '\0');
+    assert(tree.getChar("--.") == '\0');
+    assert(tree.getChar("---") == '\0');
 
-    cout << "\t decode() tests passed" << endl;
+    cout << "\t getChar() tests passed" << endl;
     cout << endl;
 }
 

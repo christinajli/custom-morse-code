@@ -52,7 +52,7 @@ void morseTree::printTree() {
     }
 }
 
-char morseTree::decode(string code) {
+char morseTree::getChar(string code) {
     treeNode* current = root;
 
     for (char c : code) {
@@ -62,7 +62,7 @@ char morseTree::decode(string code) {
             current = current->rightNode;
         } else {
             // Invalid input code or character does not exist"
-            return '\0';
+            return '?';
         }
     }
 
