@@ -1,4 +1,5 @@
 #include<iostream>
+#include "morseTree.hpp"
 using namespace std;
 
 // space between two letters
@@ -7,19 +8,15 @@ const int letter_space = 1;
 const int word_space = 3;
 // unsupported characters
 const string unsupported = "?";
-// morse code encodings of lower case characters 
-const string encodings[]={".-", "-...", "-.-", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", 
-        "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
-string encode(string text) {
+string encode(morseTree& tree, string text) {
     string code;
     for(char c : text) {
         if (c == ' ') {
             string spaces(word_space - letter_space, ' ');
             code += spaces;
         } else if (islower(c)){
-            // ascii to zero based index 
-            code += encodings[int(c) - int('a')];
+            code += tree.getCode(c);
             string spaces(letter_space, ' ');
             code += spaces;
         } else {
@@ -29,18 +26,7 @@ string encode(string text) {
     return code; 
 }
 
-char decode_letter(string letter_code) {
-    int i = 0;
-    // O(n)
-    for (; i < sizeof(encodings)/sizeof(encodings[0]); i++) {
-        if (encodings[i] == letter_code) {
-            break;
-        }
-    }
-    return char(i + 'a');
-}
-
-string decode(const string code) {
+string decode(morseTree& tree, const string code) {
     string text;
     string letter;
     bool prev_space = false;
@@ -53,7 +39,7 @@ string decode(const string code) {
                 prev_space = false;
                 code_ptr += word_space - letter_space - letter_space;
             } else {
-                text += decode_letter(letter);
+                text += tree.getChar(letter);
                 letter = "";
                 prev_space = true;
             }
@@ -64,14 +50,21 @@ string decode(const string code) {
         code_ptr++;
     }
     if (!letter.empty()){
-        text += decode_letter(letter);
+        text += tree.getChar(letter);
     }
     return text;
 }
 
 int main(int argc, char** argv) {
-    cout << encode("hello world") << endl;
-    cout << decode(".... --- .--   .- .-. .   -.-- --- ..-") << endl;
-    cout << decode(encode("bye bye")) << endl;
+
+    string order = "abcdefghijklmnopqrstuvwxyz";
+    cout << "Testing  main() with order: " << order << endl;
+
+    morseTree tree;
+    tree.buildTree(order);
+
+    cout << encode(tree, "hello world") << endl;
+    cout << decode(tree, "..- .... -...   . ..-- -.   -.-. .... .--.") << endl;
+    cout << decode(tree, encode(tree,"bye bye")) << endl;
     return 0;
 }
