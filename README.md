@@ -40,11 +40,12 @@ TODO:
 - [x] ITU Morse Code encode and decode
 - [x] tree data structure to assign . and - to characters
   - [x] input custom ordering
-- [ ] use encode and decode with new encodings
+- [x] use encode and decode with new encodings
   - [x] variable letter and word spacing, not hard coded in decode()
-  - [ ] faster search for decoding --> O(logn) if given binary tree
+  - [x] faster search for decoding --> O(logn) if given binary tree
 - [ ] command line interface 
 - [ ] edge cases: check each letter provided in ordering is unique
+- [ ] edge cases: tree root is set to `*` as placeholder, encoded characters cannot include `*`
 
 ## References 
 

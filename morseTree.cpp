@@ -4,6 +4,9 @@
 
 using namespace std;
 
+// unsupported characters
+const string unsupported = "?";
+
 morseTree::morseTree() {
     root = new treeNode('*');
 }
@@ -61,8 +64,8 @@ char morseTree::getChar(string code) {
         } else if (c == '-' && current->rightNode != nullptr) {
             current = current->rightNode;
         } else {
-            // Invalid input code or character does not exist"
-            return '?';
+            // Invalid input code or character does not exist
+            return unsupported[0];
         }
     }
 
@@ -72,7 +75,7 @@ char morseTree::getChar(string code) {
 string morseTree::getCode(char data) {
     if (root == nullptr) {
         // Empty Tree!
-        return "?";
+        return unsupported;
     }
 
     queue<treeNode*> nodeQueue;
@@ -91,5 +94,5 @@ string morseTree::getCode(char data) {
         }
         nodeQueue.pop();
     }
-    return "?";
+    return unsupported;
 }
