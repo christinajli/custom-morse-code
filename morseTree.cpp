@@ -7,15 +7,28 @@ using namespace std;
 // unsupported characters
 const string unsupported = "?";
 
+treeNode::~treeNode() {
+    if(leftNode != nullptr) {
+        delete leftNode;
+    }
+     if(rightNode != nullptr) {
+        delete rightNode;
+    }
+}
+
 morseTree::morseTree() {
     root = new treeNode('*');
+}
+
+morseTree::~morseTree() {
+    delete root;
 }
 
 treeNode* morseTree::getRoot() {
     return root; 
 }
 
-void morseTree::buildTree(string order) {
+void morseTree::buildTree(string& order) {
     queue<treeNode*> nodeQueue;
     nodeQueue.push(root);
 

@@ -12,6 +12,7 @@ public:
         leftNode(nullptr),
         rightNode(nullptr){};
     
+    ~treeNode();
     void addCode(string data) { code = data; };
 
     char character;
@@ -23,13 +24,14 @@ public:
 class morseTree {
 public:
     morseTree();
+    ~morseTree();
 
     /**
      * Creates a binary tree
      *
      * @param order: level order traversal string
      */
-    void buildTree(string order);
+    void buildTree(string& order);
 
     /**
      * Finds and returns the morse code of a given character by breadth first search 
