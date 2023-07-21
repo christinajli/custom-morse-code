@@ -29,20 +29,7 @@ The algorithm will only encode and decode the letters provided, any unknow chara
 4. follow prompt from command line, and input custom ordering of letters
 5. use "encode" or "decode" keywords followed by text or code to translate
 
-## Case Study
-TODO: 
-- [ ] Analyze ICAO codes for airports, and determine most frequently used characters.
-- [ ] [data](https://github.com/ip2location/ip2location-iata-icao/blob/master/iata-icao.csv)
-- [ ] Create new ordering
-- [ ] Compare efficiency, taking into consideration both bit size and spacing/length of signals 
-
 ## Opens
-- [x] ITU Morse Code encode and decode
-- [x] tree data structure to assign . and - to characters
-  - [x] input custom ordering
-- [x] use encode and decode with new encodings
-  - [x] variable letter and word spacing, not hard coded in decode()
-  - [x] faster search for decoding --> O(logn) if given binary tree
 - [ ] command line interface 
 - [ ] edge cases: check each letter provided in ordering is unique
 - [ ] edge cases: tree root is set to `*` as placeholder, encoded characters cannot include `*`
